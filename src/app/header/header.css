@@ -1,18 +1,22 @@
+:host {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: block;
+}
+
 header {
-    background-color: #FEFEFE;
-    height: 4rem;
-    padding: 0 2rem;
+  
+  background-color: #FEFEFE;
+  height: 4rem;
+  padding: 0 2rem;
 
-    /* display: flex;
-    align-items: center;
-    justify-content: space-between; */
-
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
 
 
-    font-family: 'Inter', sans-serif;
+  font-family: 'Inter', sans-serif;
 
 }
 
@@ -21,7 +25,7 @@ img {
     height: auto;
 }
 
-button {
+.login-btn {
     margin: 1rem;
     background-color: #cc590d;
     color: #FFFFFF;
@@ -33,6 +37,10 @@ button {
     border: none;
     border-radius: 0.5rem;
     cursor: pointer;
+}
+
+.login-btn:hover {
+    background-color: #a14f17;
 }
 
 
@@ -64,4 +72,8 @@ nav a {
     color: #cc590d;
     font-weight: bold;
     border-bottom: 2px solid #cc590d;
+}
+
+.header-right{
+  min-width: 11rem;
 }

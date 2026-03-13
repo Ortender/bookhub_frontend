@@ -1,0 +1,55 @@
+<div class="register-card">
+    <h1>Inscription</h1>
+    <h2>Rejoignez la bibliothèque de quartier</h2>
+    <form (ngSubmit)="registerUser()" [formGroup]="registerForm">
+        @if(hasError('lastName', 'required')){
+            <span>Le Nom est obligatoire</span>
+        }
+        @if(hasError('lastName', 'maxLength')){
+            <span>Le Nom ne doit pas dépasser 150 caractères</span>
+        }
+        <input type="text" name="lastName" id="lastName" placeholder="Nom*" formControlName="lastName">
+
+        @if(hasError('firstName', 'required')){
+            <span>Le Prénom est obligatoire</span>
+        }
+        @if(hasError('firstName', 'maxLength')){
+            <span>Le Prénom ne doit pas dépasser 150 caractères</span>
+        }
+        <input type="text" name="firstName" id="firstName" placeholder="Prénom*" formControlName="firstName">
+
+        @if(hasError('email', 'required')){
+            <span>L'email est obligatoire</span>
+        }
+        @if(hasError('email', 'maxLength')){
+            <span>L'email ne doit pas dépasser 250 caractères</span>
+        }
+        @if(hasError('email', 'email')){
+            <span>L'email indiqué n'est pas au format email'</span>
+        }
+        <input type="text" name="email" id="email" placeholder="Email*" formControlName="email">
+
+
+        @if(hasError('password', 'required')){
+            <span>Le mot de passe est obligatoire</span>
+        }
+        @if(hasError('password', 'maxLength')){
+            <span>Le mot de passe ne doit pas dépasser 250 caractères</span>
+        }
+        @if(hasError('password', 'pattern')){
+            <span>Le mot de passe doit respecter les instructions de caractères Minimum indiquées</span>
+        }
+        <input type="password" name="password" id="password" placeholder="Mot de passe*" autocomplete="new-password" formControlName="password">
+        <p>Minimum 12 caractères, avec majuscules, minuscules, chiffres et symboles</p>
+
+        @if(hasError('gdpr', 'required')){
+            <span>Vous devez accepter les conditions d'utilisation</span>
+        }        
+        <div class="checkbox-group"><input type="checkbox" name="gdpr" id="gdpr" formControlName="gdpr">
+            <label for="gdpr"> J'accepte les <span>conditions d'utilisation</span> et la <span>politique de confidentialité</span>﻿.</label>
+        </div>
+
+        <button type="submit">S'inscrire</button>
+    </form>
+    <img class="book-decoration" src="/book-stack.png" alt="" aria-hidden="true">
+</div>

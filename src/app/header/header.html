@@ -4,16 +4,17 @@
     </div>
     
     <nav class="header-nav">
-        <!-- TODO : enlever class='active' quand les routes auront été définie -->
          <!-- TODO : ajouter les liens bibliothécaire et administrateur ainsique  @if pour 
           les conditions d'affichage en fonction de la session utilisateur -->
-        <a routerLink="/" routerLinkActive="active" class="active">Catalogue</a>
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Catalogue</a>
         <a routerLink="/mesemprunts" routerLinkActive="active">Mes emprunts</a>
         <a routerLink="/reservations" routerLinkActive="active">Mes réservations</a>
     </nav>
 
     <div class="header-right">
+        @if (router.url !=='/login') {
         <!-- TODO : ajouter les @if pour les conditions d'affichage en fonction de la session utilisateur -->
-        <button class="login-btn">Se connecter</button>
+        <button class="login-btn" routerLink="/login">Se connecter</button>
+        }
     </div>
 </header>
