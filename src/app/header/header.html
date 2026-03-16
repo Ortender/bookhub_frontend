@@ -6,15 +6,19 @@
     <nav class="header-nav">
          <!-- TODO : ajouter les liens bibliothécaire et administrateur ainsique  @if pour 
           les conditions d'affichage en fonction de la session utilisateur -->
-        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Catalogue</a>
-        <a routerLink="/mesemprunts" routerLinkActive="active">Mes emprunts</a>
-        <a routerLink="/reservations" routerLinkActive="active">Mes réservations</a>
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" i18n="lien de navigation vers le catalogue de livres@@catalog.navLink">Catalogue</a>
+        <a routerLink="/mesemprunts" routerLinkActive="active" i18n="lien de navigation vers les emprunts@@loan.navLink">Mes emprunts</a>
+        <a routerLink="/reservations" routerLinkActive="active" i18n="lien de navigation vers les réservation@@reservation.navLink">Mes réservations</a>
     </nav>
 
     <div class="header-right">
-        @if (router.url !=='/login') {
+        @if (router.url !=='/login' && !sessionService.currentUser()) {
         <!-- TODO : ajouter les @if pour les conditions d'affichage en fonction de la session utilisateur -->
-        <button class="login-btn" routerLink="/login">Se connecter</button>
+        <button class="login-btn" routerLink="/login" i18n="bouton de navigation vers la page de login@@login.button.navLink">Se connecter</button>
+        }
+        @if (sessionService.currentUser(); as user) {
+            <button class="profile-btn" routerLink="/profile" >{{ user.prenom }}</button>
+            <button class="logout-btn" i18n="bouton de déconnexion@@logout.button" (click)="logout()">Se déconnecter</button>
         }
     </div>
 </header>

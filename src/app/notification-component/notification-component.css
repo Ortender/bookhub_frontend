@@ -1,0 +1,31 @@
+.notification {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  min-width: 16rem;
+  max-width: 24rem;
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.notification.success {
+  background-color: #e8f7ea;
+  color: #1f7a2e;
+  border: 1px solid #b7e4be;
+}
+
+.notification.error {
+  background-color: #fdecec;
+  color: #b42318;
+  border: 1px solid #f5c2c0;
+}
+
+.notification.info {
+  background-color: #eef4ff;
+  color: #1d4ed8;
+  border: 1px solid #c7d7fe;
+}

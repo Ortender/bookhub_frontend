@@ -25,7 +25,7 @@ img {
     height: auto;
 }
 
-.login-btn {
+button {
     margin: 1rem;
     background-color: #cc590d;
     color: #FFFFFF;
@@ -39,7 +39,7 @@ img {
     cursor: pointer;
 }
 
-.login-btn:hover {
+.login-btn:hover, .profile-btn:hover {
     background-color: #a14f17;
 }
 

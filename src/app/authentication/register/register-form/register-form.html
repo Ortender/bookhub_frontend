@@ -1,55 +1,126 @@
 <div class="register-card">
-    <h1>Inscription</h1>
-    <h2>Rejoignez la bibliothèque de quartier</h2>
+    <h1 i18n="Titre de la page d'inscription@@register.title">Inscription</h1>
+    <h2 i18n="Sous-titre de la page d'inscription@@register.subtitle">Rejoignez la bibliothèque de quartier</h2>
+
     <form (ngSubmit)="registerUser()" [formGroup]="registerForm">
         @if(hasError('lastName', 'required')){
-            <span>Le Nom est obligatoire</span>
+            <span i18n="Message erreur champ nom obligatoire@@register.lastName.error.required">
+                Le nom est obligatoire
+            </span>
         }
-        @if(hasError('lastName', 'maxLength')){
-            <span>Le Nom ne doit pas dépasser 150 caractères</span>
+        @if(hasError('lastName', 'maxlength')){
+            <span i18n="Message erreur longueur maximale champ nom@@register.lastName.error.maxlength">
+                Le nom ne doit pas dépasser 150 caractères
+            </span>
         }
-        <input type="text" name="lastName" id="lastName" placeholder="Nom*" formControlName="lastName">
+        <input
+            type="text"
+            name="lastName"
+            id="lastName"
+            placeholder="Nom*"
+            i18n-placeholder="Placeholder du champ nom@@register.lastName.placeholder"
+            formControlName="lastName"
+        >
 
         @if(hasError('firstName', 'required')){
-            <span>Le Prénom est obligatoire</span>
+            <span i18n="Message erreur champ prénom obligatoire@@register.firstName.error.required">
+                Le prénom est obligatoire
+            </span>
         }
-        @if(hasError('firstName', 'maxLength')){
-            <span>Le Prénom ne doit pas dépasser 150 caractères</span>
+        @if(hasError('firstName', 'maxlength')){
+            <span i18n="Message erreur longueur maximale champ prénom@@register.firstName.error.maxlength">
+                Le prénom ne doit pas dépasser 150 caractères
+            </span>
         }
-        <input type="text" name="firstName" id="firstName" placeholder="Prénom*" formControlName="firstName">
+        <input
+            type="text"
+            name="firstName"
+            id="firstName"
+            placeholder="Prénom*"
+            i18n-placeholder="Placeholder du champ prénom@@register.firstName.placeholder"
+            formControlName="firstName"
+        >
 
         @if(hasError('email', 'required')){
-            <span>L'email est obligatoire</span>
+            <span i18n="Message erreur champ email obligatoire@@register.email.error.required">
+                L'email est obligatoire
+            </span>
         }
-        @if(hasError('email', 'maxLength')){
-            <span>L'email ne doit pas dépasser 250 caractères</span>
+        @if(hasError('email', 'maxlength')){
+            <span i18n="Message erreur longueur maximale champ email@@register.email.error.maxlength">
+                L'email ne doit pas dépasser 250 caractères
+            </span>
         }
         @if(hasError('email', 'email')){
-            <span>L'email indiqué n'est pas au format email'</span>
+            <span i18n="Message erreur format email invalide@@register.email.error.email">
+                L'email indiqué n'est pas au bon format
+            </span>
         }
-        <input type="text" name="email" id="email" placeholder="Email*" formControlName="email">
-
+        <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email*"
+            i18n-placeholder="Placeholder du champ email@@register.email.placeholder"
+            formControlName="email"
+        >
 
         @if(hasError('password', 'required')){
-            <span>Le mot de passe est obligatoire</span>
+            <span i18n="Message erreur champ mot de passe obligatoire@@register.password.error.required">
+                Le mot de passe est obligatoire
+            </span>
         }
-        @if(hasError('password', 'maxLength')){
-            <span>Le mot de passe ne doit pas dépasser 250 caractères</span>
+        @if(hasError('password', 'maxlength')){
+            <span i18n="Message erreur longueur maximale champ mot de passe@@register.password.error.maxlength">
+                Le mot de passe ne doit pas dépasser 255 caractères
+            </span>
         }
         @if(hasError('password', 'pattern')){
-            <span>Le mot de passe doit respecter les instructions de caractères Minimum indiquées</span>
+            <span i18n="Message erreur format mot de passe invalide@@register.password.error.pattern">
+                Le mot de passe doit respecter les règles indiquées
+            </span>
         }
-        <input type="password" name="password" id="password" placeholder="Mot de passe*" autocomplete="new-password" formControlName="password">
-        <p>Minimum 12 caractères, avec majuscules, minuscules, chiffres et symboles</p>
+        <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Mot de passe*"
+            i18n-placeholder="Placeholder du champ mot de passe@@register.password.placeholder"
+            autocomplete="new-password"
+            formControlName="password"
+        >
+
+        <p i18n="Texte d'aide pour le mot de passe@@register.password.hint">
+            Minimum 12 caractères, avec majuscules, minuscules, chiffres et symboles
+        </p>
 
         @if(hasError('gdpr', 'required')){
-            <span>Vous devez accepter les conditions d'utilisation</span>
-        }        
-        <div class="checkbox-group"><input type="checkbox" name="gdpr" id="gdpr" formControlName="gdpr">
-            <label for="gdpr"> J'accepte les <span>conditions d'utilisation</span> et la <span>politique de confidentialité</span>﻿.</label>
+            <span i18n="Message erreur acceptation CGU et politique de confidentialité@@register.gdpr.error.required">
+                Vous devez accepter les conditions d'utilisation
+            </span>
+        }
+
+        <div class="checkbox-group">
+            <input
+                type="checkbox"
+                name="gdpr"
+                id="gdpr"
+                formControlName="gdpr"
+            >
+            <label for="gdpr" i18n="Label acceptation CGU et politique de confidentialité@@register.gdpr.label">
+                J'accepte les <span>conditions d'utilisation</span> et la <span>politique de confidentialité</span>.
+            </label>
         </div>
 
-        <button type="submit">S'inscrire</button>
+        <button type="submit" i18n="Libellé bouton inscription@@register.submit">
+            S'inscrire
+        </button>
     </form>
-    <img class="book-decoration" src="/book-stack.png" alt="" aria-hidden="true">
+
+    <img
+        class="book-decoration"
+        src="/book-stack.png"
+        alt=""
+        aria-hidden="true"
+    >
 </div>

@@ -1,1 +1,52 @@
-<p>login-form works!</p>
+<div class="login-card">
+    <h1 i18n="Titre de la page de login@@login.title">Connexion</h1>
+    <h2 i18n="Sous-titre de la page de login@@login.subtitle">Accédez à votre bibliothèque de quartier</h2>
+
+    <form (ngSubmit)="logUser()" [formGroup]="loginForm">
+        @if(hasError('email', 'required')){
+            <span i18n="Message erreur champ email obligatoire@@login.email.error.required">
+                L'email doit être renseigné
+            </span>
+        }
+        @if(hasError('email', 'email')){
+            <span i18n="Message erreur format email invalide@@login.email.error.email">
+                L'email indiqué n'est pas au bon format
+            </span>
+        }
+        <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email*"
+            i18n-placeholder="Placeholder du champ email@@login.email.placeholder"
+            formControlName="email"
+        >
+
+        @if(hasError('password', 'required')){
+            <span i18n="Message erreur champ mot de passe obligatoire@@login.password.error.required">
+                Le mot de passe doit être renseigné
+            </span>
+        }
+        <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Mot de passe*"
+            i18n-placeholder="Placeholder du champ mot de passe@@register.password.placeholder"
+            autocomplete="new-password"
+            formControlName="password"
+        >
+
+        <button type="submit" i18n="Libellé bouton connexion@@login.submit">
+            Se connecter
+        </button>
+    </form>
+    <a routerLink="/register" i18n="Lien vers inscription@@login.register.link">Pas de compte? S'inscrire</a>
+
+    <img
+        class="book-decoration"
+        src="/book-stack.png"
+        alt=""
+        aria-hidden="true"
+    >
+</div>
