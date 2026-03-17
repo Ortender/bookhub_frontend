@@ -5,6 +5,7 @@ import { Router, RouterLink } from '@angular/router';
 import { NotificationService } from '../../../services/notification-service';
 import { AuthenticationRequest } from '../../../interfaces/authentication/authentication-request';
 import { SessionService } from '../../../services/session-service';
+import { SessionUser } from '../../../interfaces/authentication/session-user';
 
 /**
  * Composant responsable de la gestion du formulaire de connexion.
@@ -108,12 +109,12 @@ export class LoginForm {
       }
       this.authenticationService.login(request).subscribe({
         next: (response) => {
-          this.notificationService.success("Vous êtes connecté");
           this.sessionService.setUser(response);
+          this.notificationService.success("Vous êtes connecté");
           this.router.navigate(['/']);
         },
         error: (err) => {
-          this.notificationService.error("échec de la connexion");
+          this.notificationService.error(err.messages);
           console.log(err);
         }
       })

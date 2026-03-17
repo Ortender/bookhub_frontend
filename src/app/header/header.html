@@ -17,7 +17,7 @@
         <button class="login-btn" routerLink="/login" i18n="bouton de navigation vers la page de login@@login.button.navLink">Se connecter</button>
         }
         @if (sessionService.currentUser(); as user) {
-            <button class="profile-btn" routerLink="/profile" >{{ user.prenom }}</button>
+            <button class="profile-btn" routerLink="/profile" >{{ user.firstName }}</button>
             <button class="logout-btn" i18n="bouton de déconnexion@@logout.button" (click)="logout()">Se déconnecter</button>
         }
     </div>

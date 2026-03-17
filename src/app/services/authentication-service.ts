@@ -4,6 +4,7 @@ import { environment } from '../../environments/environment';
 import { ResponseLogin } from '../interfaces/authentication/response-login';
 import { AuthenticationRequest } from '../interfaces/authentication/authentication-request';
 import { Observable } from 'rxjs';
+import { SessionService } from './session-service';
 
 /**
  * Service responsable de la gestion de l'authentification des utilisateurs.
@@ -29,6 +30,8 @@ export class AuthenticationService {
    */
   private httpService : HttpClient = inject(HttpClient);
 
+  private sessionService: SessionService = inject(SessionService);
+
   /**
    * Inscrit un nouvel utilisateur sur la plateforme.
    *
@@ -50,17 +53,15 @@ export class AuthenticationService {
    *
    * Envoie les identifiants de connexion (email et mot de passe) au backend
    * afin d'obtenir un token d'authentification ou les informations de session.
-   *
-   * L'option `withCredentials` permet d'inclure les cookies de session si nécessaire.
-   *
+   *   *
    * @param request Objet contenant l'email et le mot de passe de l'utilisateur
    * @returns Observable contenant la réponse d'authentification du serveur
    */
   public login(request: AuthenticationRequest ){
-    return this.httpService.post<ResponseLogin>(`${this.BASE_URL}/auth/login`, request, {withCredentials: true})
+    return this.httpService.post<ResponseLogin>(`${this.BASE_URL}/auth/login`, request)
   }
 
-  public logout() {
-    return this.httpService.post(`${this.BASE_URL}/auth/logout`, {}, {withCredentials:true});
+  public logout() : void {
+    this.sessionService.clear();
   }
 }

@@ -14,18 +14,11 @@ export class Header {
 
   public router : Router = inject(Router);
   readonly sessionService : SessionService = inject(SessionService);
-  private notificationService :  NotificationService = inject(NotificationService);
   private authenticationService : AuthenticationService = inject(AuthenticationService);
 
   public logout(){
-    this.authenticationService.logout().subscribe({
-      next : () => {
-        this.sessionService.clear();
-        this.router.navigate(['/']);},
-      error: () => {
-        this.notificationService.error("échec de la déconnexion")
-      }
-    })
+    this.authenticationService.logout();
+    this.router.navigate(['/login']);
   }
 
 }

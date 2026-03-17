@@ -1,6 +1,8 @@
 import { Injectable, signal } from '@angular/core';
 import { ResponseLogin } from '../interfaces/authentication/response-login';
-
+import {jwtDecode} from 'jwt-decode';
+import { SessionUser } from '../interfaces/authentication/session-user';
+import { JwtPayload } from '../interfaces/authentication/JwtPayload';
 
 /**
  * Service responsable de la gestion de la session utilisateur côté client.
@@ -21,7 +23,7 @@ export class SessionService {
    * - contient les informations de l'utilisateur après authentification
    * - contient `null` lorsqu'aucun utilisateur n'est connecté
    */
-  public currentUser = signal<ResponseLogin | null>(null);
+  public currentUser = signal<SessionUser | null>(null);
 
     /**
    * Définit l'utilisateur actuellement connecté.
@@ -30,7 +32,15 @@ export class SessionService {
    *
    * @param user Informations de l'utilisateur retournées par l'API
    */
-  public setUser(user : ResponseLogin): void {
+  public setUser(response : ResponseLogin): void {
+    const decodedToken = jwtDecode<JwtPayload>(response.token);
+
+    const user: SessionUser = {
+      firstName : decodedToken.firstName ?? '',
+      roles: decodedToken.role ?? [],
+      token: response.token
+    }
+
     this.currentUser.set(user);
   }
 
@@ -42,6 +52,11 @@ export class SessionService {
    */
   public clear(): void {
     this.currentUser.set(null)
+  }
+
+
+  public hasRole(roles: string): boolean {
+    return this.currentUser()?.roles.includes(roles) ?? false;
   }
 
     /**
