@@ -1,5 +1,5 @@
 export interface SessionUser {
     firstName: string;
-    roles: string[];
+    roles: Object[];
     token: string;
 }

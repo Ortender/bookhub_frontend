@@ -61,7 +61,4 @@ export class AuthenticationService {
     return this.httpService.post<ResponseLogin>(`${this.BASE_URL}/auth/login`, request)
   }
 
-  public logout() : void {
-    this.sessionService.clear();
-  }
 }

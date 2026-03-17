@@ -50,7 +50,7 @@ export class SessionService {
    * Supprime les informations de l'utilisateur actuellement connecté.
    * Cette méthode est généralement appelée lors d'une déconnexion.
    */
-  public clear(): void {
+  public logout(): void {
     this.currentUser.set(null)
   }
 
