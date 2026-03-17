@@ -1,3 +1,79 @@
-# bookhub_frontend
-Angular front end for the book hub application of the association "Quartier Solidaire"
+# BookHub
+Projet réalisé dans le cadre de notre cursus de [formation CDA (concepteur et développeur d'application)](https://www.eni-ecole.fr/formations/developpement/formation-concepteur-developpeur-applications-bac3/) à l'ENI.
+Notre équipe :
+- [Xiaowei-ren](https://github.com/xiaowei-ren)
+- [Charles](https://github.com/Ortender)
+
+BookHub est une application web permettant de consulter, gérer et partager des livres au sein d'une bibliothèque communautaire.
+
+Le projet est composé de deux applications :
+
+- [un backend REST développé avec **Spring Boot**](https://github.com/xiaowei-ren/bookhub)
+- [un frontend développé avec **Angular**](https://github.com/Ortender/bookhub_frontend)
+
+## Aperçu
+
+### Catalogue
+
+### Inscription
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/cd9eec57-8bae-4e66-ae52-905db7771b25" width="800"/>
+</p>
+
+### Connexion
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/bc90e212-b150-471f-8691-2cbed48f21e4" width="800"/>
+</p>
+
+## Architecture
+
+Le projet est composé de deux dépôts :
+
+| Repository | Description |
+|------------|------------|
+| bookhub | API REST Spring Boot |
+| bookhub_frontend | Application Angular |
+
+Architecture :
+
+Frontend (Angular)
+⬇
+API REST (Spring Boot)
+⬇
+Base de données (SQL Server)
+
+## Technologies
+
+Backend
+- Java 25
+- Spring Boot
+- Spring Security
+- JWT
+- JPA / Hibernate
+
+Frontend
+- Angular
+- TypeScript
+- Signals
+- RxJS
+
+## Fonctionnalités
+
+- Inscription utilisateur
+- Authentification avec JWT
+- Consultation des livres
+- CRUD livres
+- Gestion des rôles utilisateurs
+- Interface sécurisée
+
+# BookHub Frontend
+
+## Authentification
+
+Le frontend s'authentifie auprès de l'API via JWT.
+
+Le token est :
+- stocké côté client
+- décodé pour récupérer le prénom et les rôles
+- envoyé dans les requêtes API
 
