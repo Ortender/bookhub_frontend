@@ -2,31 +2,45 @@
   {
     "isbn": "9782010009105",
     "title": "Le Tour du monde en 80 jours",
-    "rating": 4,
     "author": "Jules Verne",
+    "rating": 4,
     "description": "Un voyage extraordinaire initié par un pari fou de Phileas Fogg.",
     "nbCopies": 5,
+    "nbEmpruntsEnCours": 2,
     "coverImage": "images/tour-du-monde.jpg",
     "categories": []
   },
   {
     "isbn": "9782070541270",
     "title": "Harry Potter à l'école des sorciers",
-    "rating": 5,
     "author": "J.K. Rowling",
+    "rating": 5,
     "description": "Le premier tome des aventures du célèbre sorcier.",
-    "nbCopies": 0,
+    "nbCopies": 3,
+    "nbEmpruntsEnCours": 3,
     "coverImage": "images/harry-potter.jpg",
     "categories": []
   },
   {
     "isbn": "9782253006329",
     "title": "Le Petit Prince",
-    "rating": 3,
     "author": "Antoine de Saint-Exupéry",
+    "rating": 3,
     "description": "Un conte poétique et philosophique pour petits et grands.",
     "nbCopies": 3,
+    "nbEmpruntsEnCours": 0,
     "coverImage": "images/petit-prince.jpg",
+    "categories": []
+  },
+  {
+    "isbn": "9782266132695",
+    "title": "1984",
+    "author": "George Orwell",
+    "rating": 4,
+    "description": "Un classique de la littérature d'anticipation.",
+    "nbCopies": 0,
+    "nbEmpruntsEnCours": 0,
+    "coverImage": "images/1984.jpg",
     "categories": []
   }
 ]

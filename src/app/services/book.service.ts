@@ -1,48 +1,57 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Book } from '../models/book.model'; // Assurez-vous d'importer le modèle Book
+import { map } from 'rxjs/operators';
+import { Book } from '../models/book.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
-  // Chemin vers les données Mock (le fichier doit être dans le dossier /public)
+  // Chemin vers le fichier Mock (situé dans le dossier /public)
   private readonly jsonUrl = 'books.json';
 
-  // URL réelle de l'API (commentée pour le moment pour utiliser les données Mock)
+  // URL réelle de l'API (commentée pour l'instant)
   // private readonly apiUrl = 'http://localhost:8080/api/books';
 
   constructor(private http: HttpClient) {}
 
   /**
-   * Méthode principale : Récupère la liste des livres.
-   * En phase Mock, elle retourne le contenu du fichier JSON local.
-   * Les paramètres query, available et categories sont conservés pour la compatibilité.
+   * Récupère la liste des livres en filtrant ceux dont le stock (nbCopies) est à 0.
+   * (Conformément à la conception : un livre avec 0 copie ne doit pas apparaître).
    */
   getBooks(query: string = '', available: boolean = false, categories: string[] = []): Observable<Book[]> {
-    // En mode Mock, nous effectuons une requête GET sur le fichier JSON local
-    return this.http.get<Book[]>(this.jsonUrl);
+    return this.http.get<Book[]>(this.jsonUrl).pipe(
+      map(books => books.filter(book => book.nbCopies > 0))
+    );
   }
 
   /**
-   * Récupère les détails d'un livre spécifique via Mock.
+   * Récupère les détails d'un livre spécifique via l'ISBN.
+   * En mode Mock, on récupère la liste complète puis on cherche l'élément.
    */
-  getBookById(id: string | number): Observable<Book> {
-    return this.http.get<Book>(`${this.jsonUrl}`);
+  getBookById(id: string | number): Observable<Book | undefined> {
+    return this.http.get<Book[]>(this.jsonUrl).pipe(
+      map(books => books.find(book => book.isbn === id))
+    );
   }
 
   /**
-   * Compatibilité : Récupère tous les livres disponibles.
+   * Méthode de compatibilité : récupère tous les livres disponibles.
    */
   getAvailableBooks(): Observable<Book[]> {
-    return this.getBooks('', false, []);
+    return this.getBooks();
   }
 
   /**
-   * Recherche de livres par mot-clé (via Mock).
+   * Recherche des livres par mot-clé (titre ou auteur).
    */
   searchBooks(keyword: string): Observable<Book[]> {
-    return this.getBooks(keyword, false, []);
+    return this.getBooks().pipe(
+      map(books => books.filter(book =>
+        book.title.toLowerCase().includes(keyword.toLowerCase()) ||
+        book.author.toLowerCase().includes(keyword.toLowerCase())
+      ))
+    );
   }
 }

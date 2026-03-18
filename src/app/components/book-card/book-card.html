@@ -15,10 +15,11 @@
 
   <div class="availability">
     <span class="status"
-          [class.status-ok]="book.nbCopies > 0"
-          [class.status-no]="book.nbCopies === 0">
-      {{ book.nbCopies > 0 ? 'Disponible' : 'Indisponible' }}
+          [class.status-ok]="(book.nbCopies - book.nbEmpruntsEnCours) > 0"
+          [class.status-no]="(book.nbCopies - book.nbEmpruntsEnCours) <= 0">
+      {{ (book.nbCopies - book.nbEmpruntsEnCours) > 0 ? 'Disponible' : 'Indisponible' }}
     </span>
+
     <button class="details-btn">Voir les détails</button>
   </div>
 </div>
