@@ -2,8 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { provideRouter, Router } from '@angular/router';
 
-import { AuthenticationService } from '../../../services/authentication-service';
-import { NotificationService } from '../../../services/notification-service';
+import { AuthenticationService } from '../../../../services/authentication-service';
+import { NotificationService } from '../../../../services/notification-service';
 import { of, throwError } from 'rxjs';
 
 import { RegisterForm } from './register-form';

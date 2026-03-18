@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { AuthenticationService } from '../../../services/authentication-service';
+import { AuthenticationService } from '../../../../services/authentication-service';
 import { Router } from '@angular/router';
-import { NotificationService } from '../../../services/notification-service';
+import { NotificationService } from '../../../../services/notification-service';
 
 /**
  * Composant responsable de la gestion du formulaire d'inscription.

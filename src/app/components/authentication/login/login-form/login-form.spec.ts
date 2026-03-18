@@ -3,9 +3,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { provideRouter, Router } from '@angular/router';
 
 import { LoginForm } from './login-form';
-import { AuthenticationService } from '../../../services/authentication-service';
-import { NotificationService } from '../../../services/notification-service';
-import { SessionService } from '../../../services/session-service';
+import { AuthenticationService } from '../../../../services/authentication-service';
+import { NotificationService } from '../../../../services/notification-service';
+import { SessionService } from '../../../../services/session-service';
 import { of, throwError } from 'rxjs';
 
 describe('LoginForm', () => {

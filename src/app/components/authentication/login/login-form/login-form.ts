@@ -1,11 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { AuthenticationService } from '../../../services/authentication-service';
+import { AuthenticationService } from '../../../../services/authentication-service';
 import { Router, RouterLink } from '@angular/router';
-import { NotificationService } from '../../../services/notification-service';
-import { AuthenticationRequest } from '../../../interfaces/authentication/authentication-request';
-import { SessionService } from '../../../services/session-service';
-import { SessionUser } from '../../../interfaces/authentication/session-user';
+import { NotificationService } from '../../../../services/notification-service';
+import { AuthenticationRequest } from '../../../../interfaces/authentication/authentication-request';
+import { SessionService } from '../../../../services/session-service';
+import { SessionUser } from '../../../../interfaces/authentication/session-user';
 
 /**
  * Composant responsable de la gestion du formulaire de connexion.

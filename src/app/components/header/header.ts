@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterLink, RouterModule } from "@angular/router";
-import { SessionService } from '../services/session-service';
+import { SessionService } from '../../services/session-service';
 
 /**
  * Composant représentant l'en-tête de l'application.
