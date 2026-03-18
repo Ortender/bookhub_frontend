@@ -77,3 +77,85 @@ nav a {
 .header-right{
   min-width: 11rem;
 }
+
+/* bouton burger caché desktop */
+.burger {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* menu mobile */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+
+  position: absolute;
+  top: 4rem;
+  left: 0;
+  right: 0;
+
+  background: #FEFEFE;
+  padding: 1.5rem;
+
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.mobile-menu a {
+  text-decoration: none;
+  font-size: 1rem;
+  color: #333;
+}
+
+.mobile-menu.open {
+  display: flex;
+}
+
+@media (max-width: 767px) {
+
+  header {
+    height: auto;
+    padding: 0.75rem 1rem 0.9rem;
+
+    grid-template-columns: auto auto auto;
+    grid-template-areas: "logo burger actions";
+    row-gap: 0.75rem;
+    align-items: center;
+  }
+
+  img {
+    grid-area: logo;
+    width: 7.5rem;
+  }
+
+  .header-right {
+    grid-area: actions;
+    min-width: auto;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  button {
+    margin: 0;
+    height: 2.25rem;
+    padding: 0 1rem;
+    font-size: 0.75rem;
+    border-radius: 0.6rem;
+    white-space: nowrap;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .burger {
+    grid-area: burger;
+    display: flex;
+    justify-content: center;
+    color: #333;
+  }
+
+}

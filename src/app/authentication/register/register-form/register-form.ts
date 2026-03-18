@@ -103,7 +103,7 @@ export class RegisterForm {
         next : (response) => {
           this.notificationService.success($localize `Votre compte a bien été créé`);
           this.router.navigate(['/login'])},
-        error: (err) => this.notificationService.error($localize `Une erreure est survenue, le compte n'a pas pu être créé`)
+        error: (err) => this.notificationService.error($localize `${err.error}`)
       })
     } else {
       this.registerForm.markAllAsTouched();

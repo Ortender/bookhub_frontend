@@ -37,4 +37,14 @@ export class Header {
     this.router.navigate(['/login']);
   }
 
+  menuOpen = false;
+
+  public toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
+
+  public closeMenu() {
+    this.menuOpen = false;
+  }
+
 }
