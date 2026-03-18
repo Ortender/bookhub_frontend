@@ -1,0 +1,143 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #FDF9F5;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.catalogue-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+
+.header-banner-section {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.header-left {
+  flex: 1;
+  min-width: 0;
+}
+
+.header-left h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.header-image {
+  flex-shrink: 0;
+  width: 300px;
+  text-align: right;
+}
+
+.header-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+.main-layout {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.filter-sidebar {
+  width: 260px;
+  flex-shrink: 0;
+}
+
+.results-section {
+  flex: 1;
+  min-width: 0;
+}
+
+.book-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* --- Tablette (max-width: 1024px) --- */
+@media (max-width: 1024px) {
+  .catalogue-container {
+    padding: 20px 15px;
+  }
+
+  .main-layout {
+    gap: 20px;
+  }
+
+  .header-left h1 {
+    font-size: 28px;
+  }
+
+  .header-image {
+    width: 250px;
+  }
+}
+
+/* --- Mobile (max-width: 768px) --- */
+@media (max-width: 768px) {
+  .header-banner-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .header-image {
+    display: none;
+  }
+
+
+  .main-layout {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .filter-sidebar {
+    width: 100%;
+    border-right: none;
+    padding-bottom: 10px;
+  }
+
+
+  .search-container {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+  }
+}
+
+/* --- Small Mobile (max-width: 480px) --- */
+@media (max-width: 480px) {
+  .catalogue-container {
+    padding: 15px 10px;
+  }
+
+  .header-left h1 {
+    font-size: 22px;
+  }
+
+  .results-section h2 {
+    font-size: 18px;
+    text-align: center;
+  }
+}

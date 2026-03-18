@@ -1,0 +1,42 @@
+<div class="catalogue-container">
+
+  <div class="header-banner-section">
+    <div class="header-left">
+      <header class="catalogue-header">
+        <h1>Catalogue de la bibliothèque</h1>
+        <p>Trouvez, empruntez des livres</p>
+      </header>
+
+      <div class="search-section">
+        <app-search-bar (search)="onSearch($any($event))"></app-search-bar>
+      </div>
+    </div>
+
+    <div class="header-image">
+      <img src="/book-stack.png" alt="Illustration">
+    </div>
+  </div>
+
+  <div class="main-layout">
+    <app-filter-sidebar (filterChange)="applyFilters($event)"></app-filter-sidebar>
+
+    <div class="results-section">
+      <h2 class="results-count">Résultats ({{books.length}} livres)</h2>
+
+      <app-book-list
+        [books]="books"
+        (viewDetailEvent)="viewDetails($any($event))">
+      </app-book-list>
+
+      @if (books.length === 0) {
+        <div class="no-results">
+          Aucun livre ne correspond à votre recherche.
+        </div>
+      }
+
+    </div>
+  </div>
+
+  <div class="pagination-container" *ngIf="books.length > 0">
+  </div>
+</div>

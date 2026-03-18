@@ -1,0 +1,21 @@
+<div class="book-list-container">
+
+  <div class="books-grid">
+    @for (book of books; track book.isbn) {
+      <app-book-card [book]="book"></app-book-card>
+    } @empty {
+      <p>Aucun livre trouvé dans le catalogue.</p>
+    }
+  </div>
+
+  <div class="pagination-wrapper">
+    <ul class="pagination">
+      <li class="page-item"><span class="page-link">&lt;</span></li>
+      <li class="page-item active"><span class="page-link">1</span></li>
+      <li class="page-item"><span class="page-link">2</span></li>
+      <li class="page-item"><span class="page-link">3</span></li>
+      <li class="page-item"><span class="page-link">4</span></li>
+      <li class="page-item"><span class="page-link">&gt;</span></li>
+    </ul>
+  </div>
+</div>

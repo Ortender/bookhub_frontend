@@ -1,0 +1,27 @@
+.star-rating-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.star-filled {
+  color: #f1c40f;
+  margin-right: 2px;
+}
+
+.star-empty {
+  color: #ddd;
+  margin-right: 2px;
+}
+
+.rating-text {
+  font-weight: bold;
+  color: #333;
+}
+
+.review-count {
+  font-weight: normal;
+  color: #777;
+  font-size: 12px;
+}

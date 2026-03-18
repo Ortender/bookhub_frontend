@@ -1,0 +1,16 @@
+<div class="star-rating-container">
+  <div class="stars">
+    @for (star of stars; track star) {
+      @if (rating >= star) {
+        <fa-icon [icon]="faSolidStar" class="star-filled"></fa-icon>
+      } @else if (rating > star - 1 && rating < star) {
+        <fa-icon [icon]="faStarHalf" class="star-filled"></fa-icon>
+      } @else {
+        <fa-icon [icon]="faRegularStar" class="star-empty"></fa-icon>
+      }
+    }
+  </div>
+  <span class="rating-text">
+    {{ rating }} <span class="review-count">({{ count }} avis)</span>
+  </span>
+</div>

@@ -1,0 +1,103 @@
+/* =========================================
+   1. GLOBAL & DESKTOP
+   ========================================= */
+
+.filters,
+.filter-sidebar {
+  display: block;
+}
+
+.quick-filters {
+  display: none;
+}
+
+.search-section {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 50px;
+  padding: 5px 5px 5px 20px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 16px;
+  background: transparent;
+}
+
+.search-btn {
+  background-color: #d35400;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 25px;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+}
+
+.btn-icon { display: none; }
+
+/* =========================================
+   2. RESPONSIVE (max-width: 768px)
+   ========================================= */
+@media (max-width: 768px) {
+
+  .filters,
+  .filter-sidebar {
+    display: none !important;
+  }
+
+  .quick-filters {
+    display: flex !important;
+    overflow-x: auto;
+    gap: 10px;
+    padding: 10px 0 20px 0;
+    scrollbar-width: none;
+  }
+  .quick-filters::-webkit-scrollbar { display: none; }
+
+  .filter-chip {
+    background: white;
+    border: 1px solid #eee;
+    padding: 8px 18px;
+    border-radius: 20px;
+    white-space: nowrap;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .search-box {
+    padding: 4px 4px 4px 15px;
+    max-width: 100%;
+  }
+
+  .search-btn {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+    padding: 0 !important;
+    border-radius: 50% !important;
+  }
+
+  .btn-text { display: none !important; }
+  .btn-icon {
+    display: flex !important;
+    font-size: 18px;
+  }
+}

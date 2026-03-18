@@ -1,0 +1,24 @@
+<div class="book-card-container">
+  <img [src]="book.coverImage" [alt]="book.title" class="book-cover">
+
+  <div class="book-details">
+    <h3>{{ book.title }}</h3>
+    <p class="author">{{ book.author }}</p>
+
+    <div class="rating-info">
+      <app-star-rating
+        [rating]="book.rating"
+        [count]="book.reviews">
+      </app-star-rating>
+    </div>
+  </div>
+
+  <div class="availability">
+    <span class="status"
+          [class.status-ok]="book.nbCopies > 0"
+          [class.status-no]="book.nbCopies === 0">
+      {{ book.nbCopies > 0 ? 'Disponible' : 'Indisponible' }}
+    </span>
+    <button class="details-btn">Voir les détails</button>
+  </div>
+</div>

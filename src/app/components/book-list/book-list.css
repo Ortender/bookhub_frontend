@@ -1,0 +1,52 @@
+.book-list-container {
+  flex: 1;
+}
+
+.results-info h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #1a1a1a;
+}
+
+.books-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+.pagination-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 35px;
+}
+
+.pagination {
+  display: flex;
+  list-style: none;
+  gap: 8px;
+  padding: 0;
+}
+
+.page-link {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #666;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.page-item.active .page-link {
+  background-color: #d35400;
+  color: white;
+}
+
+.page-link:hover:not(.active) {
+  background-color: #eee;
+}
