@@ -1,0 +1,32 @@
+[
+  {
+    "isbn": "9782010009105",
+    "title": "Le Tour du monde en 80 jours",
+    "rating": 4,
+    "author": "Jules Verne",
+    "description": "Un voyage extraordinaire initié par un pari fou de Phileas Fogg.",
+    "nbCopies": 5,
+    "coverImage": "images/tour-du-monde.jpg",
+    "categories": []
+  },
+  {
+    "isbn": "9782070541270",
+    "title": "Harry Potter à l'école des sorciers",
+    "rating": 5,
+    "author": "J.K. Rowling",
+    "description": "Le premier tome des aventures du célèbre sorcier.",
+    "nbCopies": 0,
+    "coverImage": "images/harry-potter.jpg",
+    "categories": []
+  },
+  {
+    "isbn": "9782253006329",
+    "title": "Le Petit Prince",
+    "rating": 3,
+    "author": "Antoine de Saint-Exupéry",
+    "description": "Un conte poétique et philosophique pour petits et grands.",
+    "nbCopies": 3,
+    "coverImage": "images/petit-prince.jpg",
+    "categories": []
+  }
+]
