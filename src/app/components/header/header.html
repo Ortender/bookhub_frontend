@@ -6,7 +6,7 @@
     <nav class="header-nav desktop-nav">
          <!-- TODO : ajouter les liens bibliothécaire et administrateur ainsique  @if pour 
           les conditions d'affichage en fonction de la session utilisateur -->
-        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" i18n="lien de navigation vers le catalogue de livres@@catalog.navLink" >Catalogue</a>
+        <a routerLink="/catalogue" routerLinkActive="active" i18n="lien de navigation vers le catalogue de livres@@catalog.navLink" >Catalogue</a>
         <a routerLink="/mesemprunts" routerLinkActive="active" i18n="lien de navigation vers les emprunts@@loan.navLink">Mes emprunts</a>
         <a routerLink="/reservations" routerLinkActive="active" i18n="lien de navigation vers les réservation@@reservation.navLink">Mes réservations</a>
     </nav>
@@ -35,7 +35,7 @@
 <!-- MENU MOBILE -->
 <nav class="mobile-menu" [class.open]="menuOpen">
 
-  <a routerLink="/" (click)="closeMenu()" i18n="lien de navigation vers le catalogue de livres@@catalog.navLink" >Catalogue</a>
+  <a routerLink="/catalogue" (click)="closeMenu()" i18n="lien de navigation vers le catalogue de livres@@catalog.navLink" >Catalogue</a>
   <a routerLink="/mesemprunts" (click)="closeMenu()" i18n="lien de navigation vers les emprunts@@loan.navLink">Mes emprunts</a>
   <a routerLink="/reservations" (click)="closeMenu()" i18n="lien de navigation vers les réservation@@reservation.navLink">Mes réservations</a>
 
